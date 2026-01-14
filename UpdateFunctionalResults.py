@@ -113,15 +113,15 @@ def update_timestamp(sheets_service, spreadsheet_id, cell_range):
 
 def main():
     # Configuración desde variables de entorno
-    confluence_page_id = os.environ.get('CONFLUENCE_PAGE_ID')
-    spreadsheet_id = os.environ.get('GOOGLE_FUNCTIONAL_PAGE_ID')
+    confluence_page_id = os.environ.get('CONFLUENCE_FUNCTIONAL_PAGE_ID')
+    spreadsheet_id = os.environ.get('GOOGLE_SPREADSHEET_ID')
     cell_range = os.environ.get('GOOGLE_FUNCTIONAL_PAGE_CELL_RANGE', 'Funcionales!A2')
 
     if not confluence_page_id:
-        raise ValueError("CONFLUENCE_PAGE_ID no está configurado")
+        raise ValueError("CONFLUENCE_FUNCTIONAL_PAGE_ID no está configurado")
     
     if not spreadsheet_id:
-        raise ValueError("GOOGLE_FUNCTIONAL_PAGE_ID no está configurado")
+        raise ValueError("GOOGLE_SPREADSHEET_ID no está configurado")
     
     # Conectar a Confluence
     confluence = get_confluence_client()
